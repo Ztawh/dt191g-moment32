@@ -1,0 +1,78 @@
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model IEnumerable<dt191g_moment32.Models.Cd>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CD-skivor</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@foreach (var item in ViewBag.Loans)
+{
+    <p>@item.CdId</p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Playtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Artist)
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Playtime)
+                 min
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist.Name)
+            </td>
+            <td>
+                @{
+                    if (item.Loan != null)
+                    {
+                       @:Utlånad 
+                    }
+                    else
+                    {
+                        @:Ledig
+                    }
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CdId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CdId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CdId">Delete</a>
+                @* <a asp-controller="Loan" asp-action="Index" asp-route-id="Loan">Låna</a> *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
