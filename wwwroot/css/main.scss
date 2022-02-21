@@ -1,3 +1,5 @@
+@import "_base";
+
 * {
   line-height: 1.5;
   box-sizing: border-box;
@@ -6,13 +8,18 @@
 }
 
 body {
-  background: burlywood;
+  background: $body-background;
+  font-family: 'Rokkitt', serif;
+  font-size: 1.1rem;
+  position: relative;
+  min-height: 100vh;
 }
 
 main {
   max-width: 700px;
   margin: auto;
   padding: 1rem;
+  position: relative;
 }
 
 header {
@@ -24,8 +31,13 @@ header {
   }
 }
 
+h2, h3, h4 {
+  font-family: 'Mulish', sans-serif;
+}
+
 h1 {
   font-size: 4rem;
+  margin: 0;
 }
 
 .flex {
@@ -53,21 +65,85 @@ table {
   
   th {
     text-align: left;
+    font-family: 'Mulish', sans-serif;
   }
   
   tr {
     td {
       border-top: solid 1px black;
-      padding: 0.5rem;
+      padding: 0.5rem 0.1rem 0.5rem 0;
     }
 
     td:last-child{
       text-align: right;
     }
   }
+  
+  a {
+    color: black;
+  }
+  
+  a:last-child {
+    color: darken($delete, 10);
+  }
+  
+  //a:nth-child(2){
+  //  color: darken($btn-background, 20);
+  //}
+  //
+  //a:nth-child(1){
+  //  color: darken($light-blue, 20);
+  //}
 }
 
+.cd-table {
+  margin-top: 2rem;
+}
+
+// forms
+.form-search {
+  #search-box {
+    width: 100%;
+    padding: 0.2rem;
+  }
+  
+  .btn-submit, .btn-filter {
+    padding: 0.2rem;
+    background: $light-blue;
+    border: none;
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
+}
+
+//button
+.btn {
+  background: $btn-background;
+  color: $btn-color;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.add-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+// footer
 footer {
   text-align: center;
   padding: 2rem 1rem;
+  background: $footer-background;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer-content {
+  background: $body-background;
+  width: fit-content;
+  margin: auto;
+  padding: 0.5rem;
 }

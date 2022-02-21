@@ -21,14 +21,18 @@ namespace dt191g_moment32.Controllers
         }
 
         // GET: Cd
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var collectionContext = _context.Cd.Include(c => c.Artist);
+            var collectionContext = _context.Cd.Include(c => c.Artist).Include(c => c.Loan);
+            // var loans = _context.Loan.ToListAsync().Result;
+            var cds = from m in _context.Cd
+                select m;
             
-            // var loans = _context.Loan.Include(c => c);
-
-            var loans = _context.Loan.ToListAsync();
-            ViewBag.Loans = loans;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                cds = cds.Where(s => s.Title!.ToLower().Contains(searchString.ToLower()));
+                return View(await cds.ToListAsync());
+            }
 
             return View(await collectionContext.ToListAsync());
         }

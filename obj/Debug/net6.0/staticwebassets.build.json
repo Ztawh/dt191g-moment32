@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ff8rdMVT+z/uezyp8qFST6cpXBS3ZEgko6SUhsyZP2A=",
+  "Hash": "OAMxAK9qAtRVkWCkF9z+K9kGHsMbpq/LVIBc9T5VWuI=",
   "Source": "dt191g-moment32",
   "BasePath": "_content/dt191g-moment32",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
+      "Identity": "/Users/amanda/Documents/WebbutvecklingMIUN/RiderProjects/dt191g-moment32/wwwroot/css/_base.scss",
+      "SourceId": "dt191g-moment32",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/amanda/Documents/WebbutvecklingMIUN/RiderProjects/dt191g-moment32/wwwroot/",
+      "BasePath": "_content/dt191g-moment32",
+      "RelativePath": "css/_base.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/_base.scss"
     },
     {
       "Identity": "/Users/amanda/Documents/WebbutvecklingMIUN/RiderProjects/dt191g-moment32/wwwroot/css/main.css",

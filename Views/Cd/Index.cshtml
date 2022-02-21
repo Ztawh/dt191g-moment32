@@ -8,16 +8,19 @@
 
 <h2>CD-skivor</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div>
+    <a class="btn add-btn" asp-action="Create">Ny CD <i class="fa-solid fa-music"></i></a>
+</div>
 
-@foreach (var item in ViewBag.Loans)
-{
-    <p>@item.CdId</p>
-}
+<form asp-controller="Cd" asp-action="Index" method="get" class="form-search">
+    <div>
+        Sök titel: <input type="text" name="SearchString" id="search-box"/>
+        <input class="btn-submit" type="submit" value="Sök" />
+        <a class="btn-filter" asp-controller="Cd" asp-action="Index">Visa alla</a>
+    </div>
+</form>
 
-<table class="table">
+<table class="table cd-table">
     <thead>
         <tr>
             <th>

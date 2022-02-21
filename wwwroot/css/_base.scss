@@ -1,0 +1,15 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&family=Rokkitt:wght@300;500&display=swap');
+// Normalize
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+
+$light-blue: #71a8b0;
+$btn-background: #457d86;
+$btn-color: #ffb84a;
+$body-background: #e7d1b5;
+$delete: #e76231;
+
+$footer-background: repeating-linear-gradient(
+  to right, #457d86, #457d86 10px, #71a8b0 10px, #71a8b0 20px, #ffb84a 20px, #ffb84a 30px, #e76231 30px, #e76231 40px
+);
+

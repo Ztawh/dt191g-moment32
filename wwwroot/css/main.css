@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&family=Rokkitt:wght@300;500&display=swap");
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
 * {
   line-height: 1.5;
   box-sizing: border-box;
@@ -6,13 +8,18 @@
 }
 
 body {
-  background: burlywood;
+  background: #e7d1b5;
+  font-family: "Rokkitt", serif;
+  font-size: 1.1rem;
+  position: relative;
+  min-height: 100vh;
 }
 
 main {
   max-width: 700px;
   margin: auto;
   padding: 1rem;
+  position: relative;
 }
 
 header {
@@ -23,8 +30,13 @@ header a {
   color: black;
 }
 
+h2, h3, h4 {
+  font-family: "Mulish", sans-serif;
+}
+
 h1 {
   font-size: 4rem;
+  margin: 0;
 }
 
 .flex {
@@ -47,18 +59,66 @@ table {
 }
 table th {
   text-align: left;
+  font-family: "Mulish", sans-serif;
 }
 table tr td {
   border-top: solid 1px black;
-  padding: 0.5rem;
+  padding: 0.5rem 0.1rem 0.5rem 0;
 }
 table tr td:last-child {
   text-align: right;
+}
+table a {
+  color: black;
+}
+table a:last-child {
+  color: #cd4918;
+}
+
+.cd-table {
+  margin-top: 2rem;
+}
+
+.form-search #search-box {
+  width: 100%;
+  padding: 0.2rem;
+}
+.form-search .btn-submit, .form-search .btn-filter {
+  padding: 0.2rem;
+  background: #71a8b0;
+  border: none;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  background: #457d86;
+  color: #ffb84a;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.add-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 footer {
   text-align: center;
   padding: 2rem 1rem;
+  background: repeating-linear-gradient(to right, #457d86, #457d86 10px, #71a8b0 10px, #71a8b0 20px, #ffb84a 20px, #ffb84a 30px, #e76231 30px, #e76231 40px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer-content {
+  background: #e7d1b5;
+  width: fit-content;
+  margin: auto;
+  padding: 0.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

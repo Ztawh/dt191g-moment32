@@ -42,13 +42,27 @@ namespace dt191g_moment32.Controllers
                 return NotFound();
             }
 
+            var cds = _context.Cd.ToListAsync().Result;
+
             return View(loan);
         }
 
         // GET: Loan/Create
         public IActionResult Create()
         {
-            ViewData["CdId"] = new SelectList(_context.Cd, "CdId", "Title");
+            var allCds = _context.Cd.ToListAsync().Result;
+            var sortedList = new List<Cd>();
+            var loans = _context.Loan.ToListAsync().Result;
+
+            foreach (var cd in allCds)
+            {
+                if (cd.Loan == null)
+                {
+                    sortedList.Add(cd);
+                }
+            }
+            
+            ViewData["CdId"] = new SelectList(sortedList, "CdId", "Title");
             return View();
         }
 
@@ -81,7 +95,21 @@ namespace dt191g_moment32.Controllers
             {
                 return NotFound();
             }
-            ViewData["CdId"] = new SelectList(_context.Cd, "CdId", "Title");
+            
+            var allCds = _context.Cd.ToListAsync().Result;
+            var sortedList = new List<Cd>();
+            var loans = _context.Loan.ToListAsync().Result;
+
+            foreach (var cd in allCds)
+            {
+                if (cd.Loan == null || cd.CdId == loan.CdId)
+                {
+                    sortedList.Add(cd);
+                }
+            }
+            
+            ViewData["CdId"] = new SelectList(sortedList, "CdId", "Title");
+            // ViewData["CdId"] = new SelectList(_context.Cd, "CdId", "Title");
             return View(loan);
         }
 
