@@ -28,21 +28,15 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "cd",
+    pattern: "{controller=Cd}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "artist",
     pattern: "{controller=Artist}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
-    name: "cd",
-    pattern: "{controller=Cd}/{action=Index}/{id?}");
-    
-app.MapControllerRoute(
     name: "loan",
     pattern: "{controller=Loan}/{action=Index}/{id?}");
-
-// app.MapControllerRoute(
-//     name: "artist",
-//     pattern: "{controller=Artist}/{action=Index}/{id?}");
-
-
 
 app.Run();

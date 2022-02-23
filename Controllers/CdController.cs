@@ -24,7 +24,8 @@ namespace dt191g_moment32.Controllers
         public async Task<IActionResult> Index(string searchString)
         {
             var collectionContext = _context.Cd.Include(c => c.Artist).Include(c => c.Loan);
-            // var loans = _context.Loan.ToListAsync().Result;
+            await _context.Artist.ToListAsync();
+            
             var cds = from m in _context.Cd
                 select m;
             

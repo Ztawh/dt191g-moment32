@@ -1,7 +1,7 @@
 @model IEnumerable<dt191g_moment32.Models.Artist>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Artister";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -26,9 +26,9 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ArtistId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ArtistId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ArtistId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ArtistId">Redigera</a> |
+                <a asp-action="Details" asp-route-id="@item.ArtistId">Detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.ArtistId">Radera</a>
             </td>
         </tr>
 }

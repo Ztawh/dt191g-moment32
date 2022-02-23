@@ -1,7 +1,7 @@
 @model IEnumerable<dt191g_moment32.Models.Loan>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lån";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.Cd.Title)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.LoanId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.LoanId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.LoanId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.LoanId">Redigera</a> |
+                <a asp-action="Details" asp-route-id="@item.LoanId">Detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.LoanId">Återlämna</a>
             </td>
         </tr>
 }

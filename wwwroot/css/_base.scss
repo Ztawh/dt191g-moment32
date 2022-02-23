@@ -5,11 +5,35 @@
 
 $light-blue: #71a8b0;
 $btn-background: #457d86;
+$btn-dark: #284f56;
+$btn-hover: #16282c;
 $btn-color: #ffb84a;
+$yellow-dark: darken(#ffb84a, 8);
 $body-background: #e7d1b5;
 $delete: #e76231;
+
 
 $footer-background: repeating-linear-gradient(
   to right, #457d86, #457d86 10px, #71a8b0 10px, #71a8b0 20px, #ffb84a 20px, #ffb84a 30px, #e76231 30px, #e76231 40px
 );
+
+// Mixins
+
+@mixin desktop {
+  @media screen and (min-width: 800px){
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 800px){
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 500px){
+    @content;
+  }
+}
 

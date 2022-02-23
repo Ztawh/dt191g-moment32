@@ -1,5 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&family=Rokkitt:wght@300;500&display=swap");
 @import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+.link, table a, nav a {
+  color: black;
+  position: relative;
+  text-decoration: none;
+}
+.link::before, table a::before, nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -2px;
+  left: -2px;
+  height: 5px;
+  background: #71a8b0;
+  opacity: 0.55;
+  transition: 0.2s;
+  z-index: -1;
+}
+@media screen and (min-width: 800px) {
+  .link:hover, table a:hover, nav a:hover {
+    cursor: pointer;
+  }
+  .link:hover::before, table a:hover::before, nav a:hover::before {
+    height: 22px;
+  }
+}
+
 * {
   line-height: 1.5;
   box-sizing: border-box;
@@ -13,13 +39,19 @@ body {
   font-size: 1.1rem;
   position: relative;
   min-height: 100vh;
+  padding-bottom: 5rem;
 }
 
 main {
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
-  padding: 1rem;
+  padding: 3rem 1rem;
   position: relative;
+}
+
+.super-container {
+  max-width: 1320px;
+  margin: auto;
 }
 
 header {
@@ -38,6 +70,11 @@ h1 {
   font-size: 4rem;
   margin: 0;
 }
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
 
 .flex {
   display: flex;
@@ -46,13 +83,9 @@ h1 {
 nav ul {
   list-style-type: none;
 }
-nav a {
-  display: flex;
-  padding: 0.5rem;
-  text-decoration: none;
-  color: #1b6ec2;
+nav li {
+  margin-right: 1rem;
 }
-
 table {
   width: 100%;
   -webkit-border-horizontal-spacing: 0;
@@ -60,48 +93,164 @@ table {
 table th {
   text-align: left;
   font-family: "Mulish", sans-serif;
+  font-size: 1rem;
+}
+@media screen and (max-width: 800px) {
+  table th {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  table tr {
+    margin-bottom: 2rem;
+    display: block;
+  }
 }
 table tr td {
   border-top: solid 1px black;
   padding: 0.5rem 0.1rem 0.5rem 0;
 }
+@media screen and (min-width: 800px) {
+  table tr td:first-child {
+    max-width: 100px;
+  }
+}
+@media screen and (max-width: 800px) {
+  table tr td {
+    display: block;
+    padding-left: 1rem;
+  }
+  table tr td:first-child {
+    background: #ffb84a;
+    font-size: 1.5rem;
+    border-top: none;
+    position: relative;
+  }
+  table tr td:nth-child(2) {
+    border-top: none;
+  }
+}
 table tr td:last-child {
   text-align: right;
 }
-table a {
-  color: black;
+table a:last-child::before {
+  background: #e76231;
 }
-table a:last-child {
-  color: #cd4918;
+table a:nth-child(2)::before {
+  background: #f79600;
 }
 
 .cd-table {
   margin-top: 2rem;
 }
+@media screen and (max-width: 800px) {
+  .cd-table td:first-child::after {
+    content: "\f51f";
+    font-family: "Font Awesome 5 Free";
+  }
+}
+
+.edit-form input, .add-form input {
+  display: block;
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  border: none;
+  border-radius: 10px;
+}
+.edit-form label, .add-form label {
+  margin-left: 0.1rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+.edit-form input:last-child, .add-form input:last-child {
+  margin-top: 1rem;
+  width: 150px;
+  margin-left: auto;
+  transition: 0.2s;
+  border-radius: unset;
+}
+@media screen and (min-width: 800px) {
+  .edit-form input:last-child:hover, .add-form input:last-child:hover {
+    cursor: pointer;
+    background: #284f56;
+  }
+}
 
 .form-search #search-box {
   width: 100%;
-  padding: 0.2rem;
+  padding: 0.2rem 0.8rem;
+  border: none;
+  border-radius: 20px;
 }
 .form-search .btn-submit, .form-search .btn-filter {
-  padding: 0.2rem;
-  background: #71a8b0;
+  padding: 0.1rem 0.5rem;
+  background: #457d86;
   border: none;
   text-decoration: none;
   margin-top: 0.5rem;
+  color: #ffb84a;
+  transition: 0.2s;
+  display: block;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+@media screen and (min-width: 800px) {
+  .form-search .btn-submit:hover, .form-search .btn-filter:hover {
+    cursor: pointer;
+    background: #284f56;
+  }
+}
+.form-search .btn-container {
+  margin-left: 0.3rem;
+}
+
+.btn-delete {
+  border: none;
+  background: none;
+}
+
+.link::before {
+  background: #f79600;
+}
+
+.delete-wrapper::before {
+  background: #e76231;
+}
+
+.link-edit::before {
+  background: #71a8b0;
 }
 
 .btn {
   background: #457d86;
   color: #ffb84a;
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .add-btn {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 1rem;
+}
+@media screen and (min-width: 800px) {
+  .add-btn:hover {
+    background: #284f56;
+  }
+}
+
+dt {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.border-bottom {
+  border-bottom: solid 1px black;
+}
+
+.border-top {
+  border-top: solid 1px black;
 }
 
 footer {

@@ -1,16 +1,15 @@
 @model dt191g_moment32.Models.Artist
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Radera";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
+<h2>Radera</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="border-bottom">Är du säker på att du vill radera den här artisten?</h3>
 <div>
     <h4>Artist</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -20,9 +19,9 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="border-top">
         <input type="hidden" asp-for="ArtistId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <span class="link delete-wrapper"><input type="submit" value="Radera" class="btn-delete" /></span> |
+        <a class="link" asp-action="Index">Tillbaka</a>
     </form>
 </div>

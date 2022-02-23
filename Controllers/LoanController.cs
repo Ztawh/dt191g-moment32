@@ -162,6 +162,8 @@ namespace dt191g_moment32.Controllers
             {
                 return NotFound();
             }
+            
+            var temp = await _context.Loan.Include(c => c.Cd).ToListAsync();
 
             return View(loan);
         }

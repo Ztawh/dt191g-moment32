@@ -2,7 +2,7 @@
 @model IEnumerable<dt191g_moment32.Models.Cd>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CD-skivor";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,8 +15,10 @@
 <form asp-controller="Cd" asp-action="Index" method="get" class="form-search">
     <div>
         Sök titel: <input type="text" name="SearchString" id="search-box"/>
-        <input class="btn-submit" type="submit" value="Sök" />
-        <a class="btn-filter" asp-controller="Cd" asp-action="Index">Visa alla</a>
+        <div class="btn-container flex">
+            <input class="btn-submit" type="submit" value="Sök" />
+            <a class="btn-filter" asp-controller="Cd" asp-action="Index">Visa alla</a>
+        </div>
     </div>
 </form>
 
@@ -70,10 +72,9 @@
                 }
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CdId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CdId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CdId">Delete</a>
-                @* <a asp-controller="Loan" asp-action="Index" asp-route-id="Loan">Låna</a> *@
+                <a asp-action="Edit" asp-route-id="@item.CdId">Redigera</a> |
+                <a asp-action="Details" asp-route-id="@item.CdId">Detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.CdId">Radera</a>
             </td>
         </tr>
 }

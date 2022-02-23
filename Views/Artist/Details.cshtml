@@ -1,15 +1,14 @@
 @model dt191g_moment32.Models.Artist
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detaljer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h2>Details</h2>
 
 <div>
-    <h4>Artist</h4>
-    <hr />
+    <h3 class="border-bottom">Artist</h3>
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -19,7 +18,7 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ArtistId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="border-top">
+    <a class="link link-edit" asp-action="Edit" asp-route-id="@Model?.ArtistId">Redigera</a> |
+    <a class="link" asp-action="Index">Tillbaka</a>
 </div>

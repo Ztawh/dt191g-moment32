@@ -6,14 +6,14 @@ public class Cd
 {
     public int CdId { get; set; }
     
-    [Required]
+    [Required(ErrorMessage = "Ange en titel")]
     [Display(Name = "Titel")]
     public string? Title { get; set; }
     
-    [Required]
+    [Required(ErrorMessage = "Ange en genre")]
     public string? Genre { get; set; }
   
-    [Required]
+    [Required(ErrorMessage = "Ange minuter")]
     [Display(Name = "Speltid (minuter)")]
     public int Playtime { get; set; }
 

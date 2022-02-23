@@ -6,7 +6,7 @@ public class Artist
 {
     public int ArtistId { get; set; }
     
-    [Required]
+    [Required(ErrorMessage = "Ange en artist/band")]
     [Display(Name = "Artist/band")]
     public string? Name { get; set; }
 

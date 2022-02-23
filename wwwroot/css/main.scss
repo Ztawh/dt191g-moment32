@@ -1,5 +1,34 @@
 @import "_base";
 
+// styling for links
+%links{
+  color: black;
+  position: relative;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -2px;
+    left: -2px;
+    height: 5px;
+    background: $light-blue;
+    opacity: 0.55;
+    transition: 0.2s;
+    z-index: -1;
+  }
+
+  @include desktop {
+    &:hover {
+      cursor: pointer;
+      &::before {
+        height: 22px;
+      }
+    }
+  }
+}
+
 * {
   line-height: 1.5;
   box-sizing: border-box;
@@ -13,13 +42,19 @@ body {
   font-size: 1.1rem;
   position: relative;
   min-height: 100vh;
+  padding-bottom: 5rem;
 }
 
 main {
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
-  padding: 1rem;
+  padding: 3rem 1rem;
   position: relative;
+}
+
+.super-container {
+  max-width: 1320px;
+  margin: auto;
 }
 
 header {
@@ -38,6 +73,10 @@ h2, h3, h4 {
 h1 {
   font-size: 4rem;
   margin: 0;
+  
+  @include mobile {
+    font-size: 2.5rem;
+  }
 }
 
 .flex {
@@ -48,13 +87,14 @@ h1 {
 nav {
   ul {
     list-style-type: none;
-    
   }
+  
+  li {
+    margin-right: 1rem;
+  }
+  
   a {
-    display: flex;
-    padding: 0.5rem;
-    text-decoration: none;
-    color: #1b6ec2;
+    @extend %links;
   }
 }
 
@@ -66,12 +106,46 @@ table {
   th {
     text-align: left;
     font-family: 'Mulish', sans-serif;
+    font-size: 1rem;
+
+    @include tablet {
+      display: none;
+    }
   }
   
   tr {
+    @include tablet {
+      margin-bottom: 2rem;
+      display: block;
+      
+    }
+    
     td {
       border-top: solid 1px black;
       padding: 0.5rem 0.1rem 0.5rem 0;
+      
+      @include desktop {
+        &:first-child {
+          max-width: 100px;
+        }
+      }
+      
+      @include tablet {
+        display: block;
+        padding-left: 1rem;
+        
+        &:first-child{
+          background: $btn-color;
+          font-size: 1.5rem;
+          border-top: none;
+          position: relative;
+          
+        }
+        
+        &:nth-child(2){
+          border-top: none;
+        }
+      }
     }
 
     td:last-child{
@@ -80,54 +154,159 @@ table {
   }
   
   a {
-    color: black;
+    @extend %links;
   }
   
   a:last-child {
-    color: darken($delete, 10);
+    &::before{
+      background: $delete;
+    }
   }
   
-  //a:nth-child(2){
-  //  color: darken($btn-background, 20);
-  //}
-  //
-  //a:nth-child(1){
-  //  color: darken($light-blue, 20);
-  //}
+  a:nth-child(2){
+    &::before {
+      background: darken($yellow-dark, 8);
+    }
+  }
 }
 
 .cd-table {
   margin-top: 2rem;
+  
+  @include tablet {
+    td {
+      &:first-child{
+        &::after {
+          content: "\f51f";
+          font-family: "Font Awesome 5 Free";
+        }
+      }
+    }
+  }
 }
 
 // forms
-.form-search {
-  #search-box {
+.edit-form, .add-form {
+  input {
+    display: block;
     width: 100%;
-    padding: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    border: none;
+    border-radius: 10px;
   }
   
-  .btn-submit, .btn-filter {
-    padding: 0.2rem;
-    background: $light-blue;
-    border: none;
-    text-decoration: none;
+  label {
+    margin-left: 0.1rem;
     margin-top: 0.5rem;
+    display: block;
+  }
+  
+  // button
+  input:last-child {
+    margin-top: 1rem;
+    width: 150px;
+    margin-left: auto;
+    transition: 0.2s;
+    border-radius: unset;
+    
+    @include desktop {
+      &:hover {
+        cursor: pointer;
+        background: $btn-dark;
+      }
+    }
   }
 }
 
-//button
+.form-search {
+  #search-box {
+    width: 100%;
+    padding: 0.2rem 0.8rem;
+    border: none;
+    border-radius: 20px;
+  }
+  
+  .btn-submit, .btn-filter {
+    padding: 0.1rem 0.5rem;
+    background: $btn-background;
+    border: none;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    color: $btn-color;
+    transition: 0.2s;
+    display: block;
+    margin-right: 10px;
+    border-radius: 10px;
+    
+    @include desktop {
+      &:hover {
+        cursor: pointer;
+        background: $btn-dark;
+      }
+    }
+  }
+  .btn-container {
+    margin-left: 0.3rem;
+  }
+}
+
+// links
+.btn-delete {
+  border: none;
+  background: none;
+}
+
+.link {
+  @extend %links;
+  
+  &::before {
+    background: darken($yellow-dark, 8);
+  }
+}
+
+.delete-wrapper {
+  &::before {
+    background: $delete;
+  }
+}
+
+.link-edit::before {
+  background: $light-blue;
+}
+
+// buttons
 .btn {
   background: $btn-background;
   color: $btn-color;
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .add-btn {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 1rem;
+  
+  @include desktop {
+    &:hover {
+      background: $btn-dark;
+    }
+  }
+}
+
+// details
+dt {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.border-bottom {
+  border-bottom: solid 1px black;
+}
+
+.border-top {
+  border-top: solid 1px black;
 }
 
 // footer

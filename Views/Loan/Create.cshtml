@@ -1,17 +1,16 @@
 @model dt191g_moment32.Models.Loan
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Nytt lån";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h2>Nytt lån</h2>
 
-<h4>Loan</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<h3>Lån</h3>
+<div>
+    <div>
+        <form asp-action="Create" class="add-form">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -29,13 +28,13 @@
                 <span asp-validation-for="CdId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Skapa" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="link" asp-action="Index">Tillbaka</a>
 </div>
 

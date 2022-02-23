@@ -6,15 +6,15 @@ public class Loan
 {
     public int LoanId { get; set; }
  
-    [Required]
-    [Display(Name = "Kundnamn")]
+    [Required(ErrorMessage = "Ange ett namn")]
+    [Display(Name = "Namn")]
     public string? Name { get; set; }
   
-    [Required]
+    [Required(ErrorMessage = "Ange ett datum för utlåning")]
     [Display(Name = "Datum")]
     public string? Date { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Välj CD")]
     [Display(Name = "CD")]
     public int CdId { get; set; }
     public Cd? Cd { get; set; }
